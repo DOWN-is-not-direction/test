@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Rive Animation</title>
+<style>
+body, html {
+
+    margin: 0;
+    font-size: 0px;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-y: auto;   /* Allow vertical scrolling */
+
+
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: bottom;
+
+    background-color: #d8d8d8;
+
+    height: 100vh;
+}
+
+#container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+</style>
+    <script src="https://unpkg.com/@rive-app/canvas@latest"></script>
+</head>
+<body>
+    <div id="container"><canvas id="canvas" width="500" height="500"></canvas></div>
+<div id="widthDisplay"></div>
+<script>
+    const r = new rive.Rive({
+        src: ".//character.riv",
+        // OR the path to a discoverable and public Rive asset
+        // src: '/public/example.riv',
+        canvas: document.getElementById("canvas"),
+        autoplay: true,
+        // artboard: "Arboard", // Optional. If not supplied the default is selected
+        stateMachines: "animation",
+        onLoad: () => {
+          r.resizeDrawingSurfaceToCanvas();
+        },
+    });
+</script>
+</script>
+</body>
+</html>
+
